@@ -131,6 +131,47 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-23T02:42:38.000Z">2018-11-23</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 0 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/11/23/article-title/">First day here</a>
+            
+            
+                <i class="fa fa-thumb-tack"></i>
+                <font color="7D26CD">置顶</font>
+                <span class="post-meta-divider">|</span>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-12-06T02:28:21.000Z">2018-12-06</time>
                 
                 
@@ -218,47 +259,6 @@
 </ol>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">meanX</span><span class="hljs-params">(dataX)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.mean(dataX,axis=<span class="hljs-number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pca</span><span class="hljs-params">(XMat,k)</span>:</span></span><br><span class="line">    average = meanX(XMat)</span><br><span class="line">    m,n = np.shape(XMat)</span><br><span class="line">    data_adjust = []</span><br><span class="line">    avgs = np.tile(average,(m,<span class="hljs-number">1</span>))</span><br><span class="line">    data_adjust = XMat - avgs</span><br><span class="line">    covX = np.cov(data_adjust.T)</span><br><span class="line">    featValue,featVec = np.linalg.eig(covX)</span><br><span class="line">    index = np.argsort(-featValue)</span><br><span class="line">    finalData = []</span><br><span class="line">    <span class="hljs-keyword">if</span> k &gt; n:</span><br><span class="line">        <span class="hljs-keyword">print</span> <span class="hljs-string">"k must lower than feature number"</span></span><br><span class="line">        <span class="hljs-keyword">return</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        selectVec = np.matrix(featVec[index[:k]])</span><br><span class="line">        finalData = data_adjust*selectVec.T</span><br><span class="line">        reconData = (finalData*selectVec) + average</span><br><span class="line">    <span class="hljs-keyword">return</span> finalData,reconData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loaddata</span><span class="hljs-params">(datafile)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.array(pd.read_csv(datafile,sep=<span class="hljs-string">"\t"</span>,header=<span class="hljs-number">-1</span>)).astype(np.float)</span><br></pre></td></tr></table></figure>
 
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-23T02:42:38.000Z">2018-11-23</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a few seconds read (About 0 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/11/23/article-title/">First day here</a>
-            
-            
-                <i class="fa fa-thumb-tack"></i>
-                <font color="7D26CD">置顶</font>
-                <span class="post-meta-divider">|</span>
-            
-        </h1>
-        <div class="content">
-            
         </div>
         
         
