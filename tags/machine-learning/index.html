@@ -2,7 +2,7 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-<title>Tag: machine learning - SherhomYe</title>
+<title>Etiqueta: machine learning - SherhomYe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -128,7 +128,7 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">Tags</a></li>
+            <li><a href="/tags">Etiquetas</a></li>
             <li class="is-active"><a href="#" aria-current="page">machine learning</a></li>
         </ul>
         </nav>
@@ -209,7 +209,7 @@
 <p>对于数据集矩阵:</p>
 <p>$X = \begin{pmatrix}a_1&amp;a_2&amp;…&amp;a_m\b_1&amp;b_2&amp;…&amp;b_m \end{pmatrix}$，特征维度为2</p>
 <p>假设均值为0，我们可以通过$\frac{1}{m}XX^T$得到协方差矩阵：</p>
-<p>$\begin{pmatrix}\frac{1}{m}\sum<em>{i=1}^m a_i^2 &amp;\frac{1}{m}\sum</em>{i=1}^m a<em>ib_i \ \frac{1}{m}\sum</em>{i=1}^ma<em>ib_i &amp; \frac{1}{m}\sum</em>{i=1}^m b_i^2 \end{pmatrix}$</p>
+<p>$\begin{pmatrix}\frac{1}{m}\sum_{i=1}^m a_i^2 &amp;\frac{1}{m}\sum_{i=1}^m a_ib_i \ \frac{1}{m}\sum_{i=1}^ma_ib_i &amp; \frac{1}{m}\sum_{i=1}^m b_i^2 \end{pmatrix}$</p>
 <p>由矩阵可以知道，对角线上的元素就是均值为0情况下的方差，而非对角线上的元素就是两个字段的协方差，所以协方差矩阵直接满足了我们所需要的两个条件，下面我们只需要对<strong>方差最大、协方差最小</strong>来进行就可以了</p>
 <p>如何让Max和min同时满足呢，我们要做的就是协方差矩阵对角化（除对角线外的元素化为0，对角线元素从大到小排列）</p>
 <p>我们假设output为Y，input为X，分别对应协方差矩阵$Y_c$$X_c$</p>
@@ -276,7 +276,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -286,7 +286,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -296,7 +296,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        Etiqueta
                     </p>
                     <p class="title has-text-weight-normal">
                         1
@@ -306,7 +306,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Sherhom">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -387,7 +387,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             
@@ -400,7 +400,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a>
     </div>
@@ -414,7 +414,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -482,7 +482,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -517,7 +517,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -551,7 +551,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -619,7 +619,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -654,7 +654,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -827,10 +827,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
