@@ -22,10 +22,10 @@
 <link rel="icon" href="/images/logo.jpg">
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr">
 
 
     
@@ -37,14 +37,14 @@
     
     
     
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr">
     
 
     
     
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr">
 
 
     
@@ -66,7 +66,7 @@
     
     
 <link rel="stylesheet" href="/css/progressbar.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr"></script>
 
     
 
@@ -125,47 +125,6 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-23T02:42:38.000Z">2018-11-23</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a few seconds read (About 0 words)
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/11/23/article-title/">First day here</a>
-            
-            
-                <i class="fa fa-thumb-tack"></i>
-                <font color="7D26CD">置顶</font>
-                <span class="post-meta-divider">|</span>
-            
-        </h1>
-        <div class="content">
-            
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
     <div class="card">
     
     <div class="card-content article ">
@@ -240,7 +199,7 @@
 <p>对于数据集矩阵:</p>
 <p>$X = \begin{pmatrix}a_1&amp;a_2&amp;…&amp;a_m\b_1&amp;b_2&amp;…&amp;b_m \end{pmatrix}$，特征维度为2</p>
 <p>假设均值为0，我们可以通过$\frac{1}{m}XX^T$得到协方差矩阵：</p>
-<p>$\begin{pmatrix}\frac{1}{m}\sum_{i=1}^m a_i^2 &amp;\frac{1}{m}\sum_{i=1}^m a_ib_i \ \frac{1}{m}\sum_{i=1}^ma_ib_i &amp; \frac{1}{m}\sum_{i=1}^m b_i^2 \end{pmatrix}$</p>
+<p>$\begin{pmatrix}\frac{1}{m}\sum<em>{i=1}^m a_i^2 &amp;\frac{1}{m}\sum</em>{i=1}^m a<em>ib_i \ \frac{1}{m}\sum</em>{i=1}^ma<em>ib_i &amp; \frac{1}{m}\sum</em>{i=1}^m b_i^2 \end{pmatrix}$</p>
 <p>由矩阵可以知道，对角线上的元素就是均值为0情况下的方差，而非对角线上的元素就是两个字段的协方差，所以协方差矩阵直接满足了我们所需要的两个条件，下面我们只需要对<strong>方差最大、协方差最小</strong>来进行就可以了</p>
 <p>如何让Max和min同时满足呢，我们要做的就是协方差矩阵对角化（除对角线外的元素化为0，对角线元素从大到小排列）</p>
 <p>我们假设output为Y，input为X，分别对应协方差矩阵$Y_c$$X_c$</p>
@@ -259,6 +218,47 @@
 </ol>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">meanX</span><span class="hljs-params">(dataX)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.mean(dataX,axis=<span class="hljs-number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pca</span><span class="hljs-params">(XMat,k)</span>:</span></span><br><span class="line">    average = meanX(XMat)</span><br><span class="line">    m,n = np.shape(XMat)</span><br><span class="line">    data_adjust = []</span><br><span class="line">    avgs = np.tile(average,(m,<span class="hljs-number">1</span>))</span><br><span class="line">    data_adjust = XMat - avgs</span><br><span class="line">    covX = np.cov(data_adjust.T)</span><br><span class="line">    featValue,featVec = np.linalg.eig(covX)</span><br><span class="line">    index = np.argsort(-featValue)</span><br><span class="line">    finalData = []</span><br><span class="line">    <span class="hljs-keyword">if</span> k &gt; n:</span><br><span class="line">        <span class="hljs-keyword">print</span> <span class="hljs-string">"k must lower than feature number"</span></span><br><span class="line">        <span class="hljs-keyword">return</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        selectVec = np.matrix(featVec[index[:k]])</span><br><span class="line">        finalData = data_adjust*selectVec.T</span><br><span class="line">        reconData = (finalData*selectVec) + average</span><br><span class="line">    <span class="hljs-keyword">return</span> finalData,reconData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loaddata</span><span class="hljs-params">(datafile)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.array(pd.read_csv(datafile,sep=<span class="hljs-string">"\t"</span>,header=<span class="hljs-number">-1</span>)).astype(np.float)</span><br></pre></td></tr></table></figure>
 
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-23T02:42:38.000Z">2018-11-23</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 0 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/11/23/article-title/">First day here</a>
+            
+            
+                <i class="fa fa-thumb-tack"></i>
+                <font color="7D26CD">置顶</font>
+                <span class="post-meta-divider">|</span>
+            
+        </h1>
+        <div class="content">
+            
         </div>
         
         
@@ -353,7 +353,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
                         3
@@ -363,7 +363,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -373,7 +373,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        Etiqueta
                     </p>
                     <p class="title has-text-weight-normal">
                         1
@@ -383,7 +383,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Sherhom">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -464,7 +464,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             
@@ -477,7 +477,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a>
     </div>
@@ -491,7 +491,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -559,7 +559,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -594,7 +594,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -628,7 +628,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -696,7 +696,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -731,7 +731,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -811,8 +811,8 @@
         </div>
     </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr"></script>
 <script>moment.locale("en");</script>
 
 
@@ -825,8 +825,8 @@
     
     
     
-    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr" defer></script>
     <script src="/js/gallery.js" defer></script>
     
 
@@ -839,7 +839,7 @@
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr" defer></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         outdatedBrowser({
@@ -853,7 +853,7 @@
 
     
     
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML jsdelivr" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     MathJax.Hub.Config({
@@ -904,10 +904,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
