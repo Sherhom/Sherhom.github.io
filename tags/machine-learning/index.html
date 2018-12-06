@@ -2,19 +2,18 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>First day here - SherhomYe</title>
+<title>Tag: machine learning - SherhomYe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="article">
-<meta property="og:title" content="First day here">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/article-title/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="SherhomYe">
+<meta property="og:url" content="http://yoursite.com/tags/machine-learning/index.html">
 <meta property="og:site_name" content="SherhomYe">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-23T02:58:48.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="First day here">
+<meta name="twitter:title" content="SherhomYe">
 
 
 
@@ -80,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.jpg" alt="First day here" height="28">
+                <img src="/images/logo.jpg" alt="SherhomYe" height="28">
             
             </a>
         </div>
@@ -126,18 +125,29 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">machine learning</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-23T02:42:38.000Z">2018-11-23</time>
+                <time class="level-item has-text-grey" datetime="2018-12-06T02:28:21.000Z">2018-12-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 0 words)
+                    13 minutes read (About 1946 words)
                 </span>
                 
             </div>
@@ -145,16 +155,79 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                First day here
+                <a class="has-link-black-ter" href="/2018/12/06/PCA/">PCA整理</a>
             
-            
-                <i class="fa fa-thumb-tack"></i>
-                <font color="7D26CD">置顶</font>
-                <span class="post-meta-divider">|</span>
             
         </h1>
         <div class="content">
-            
+            <p>在PCA学习上遇到了很多的困难，总结如下:  </p>
+<ul>
+<li>线性代数知识点的模糊</li>
+<li>高等数学知识的遗忘  </li>
+<li>过分依赖空间想象</li>
+</ul>
+<p>其中，我想再开始解释第三点“过分依赖空间想象”，我们在学习的过程中总是不自觉的将线性变换通过二维空间或者三维空间中想象来进行解释，这种做法固然好，可以很直观地帮助我们理解数学问题，但是在多维空间中我们要通过二维到多维，正视矩阵！矩阵、向量这些概念帮助我们解释了多维空间里的变化，因此我们要通过矩阵看问题，不要通过空间看矩阵。</p>
+<p> 因此特地将PCA原理及python实现整理下来，以便后面可以及时回顾复习。</p>
+<p>在本文实际上提供了两种理解思路，在简介里的思路是通过拉格朗日乘数法进行解释，在下面问题里主要通过矩阵的形式进行解释。</p>
+<hr>
+<p> pca（principal component analysis）是一种降维技术，将多维数据在损失比较小的情况下转换到低维，所谓损失比较小就是我们将一些计算价值量较低（variance较小）的维度清除掉，保留差异性较大的维度，这些维度才是值得我们去考虑并且计算的部分，pca方法和其他降维方法一样，都是为了减轻计算量。<br> $z=\omega x$</p>
+<p>Input : x   output : z（在unsupervised learning中不知道z的样子，是根据大量的x来寻找$\omega$的）我们要使得选出的$\omega$让z的variance越大越好，以此来消除歧义（PCA解释方差对离群点非常敏感），否则variance近似，我们的数据是没有意义的。</p>
+<h5 id="简单介绍PCA的原理"><a href="#简单介绍PCA的原理" class="headerlink" title="简单介绍PCA的原理"></a>简单介绍PCA的原理</h5><p>首先根据公式我们知道我们的目标是找$\omega$来</p>
+<p>首先我们先从1-dim空间中进行解决，假设$\omega$是一维的，我们发现z和x的关系实际上就是x到$\omega$的投影，在这里我们假设$\left|\omega\right|_2=1$，之所以希望norm为1，是因为我们希望看到的是$x$到$z$的投影是$x$的长度，那么我们知道inner product里$x \cdot w$的结果是$\left|w\right|\left|x\right|\cos\theta$,我们只有让$w$的norm为1才才能够做到这一点。如果寻找这个$w$，我们的loss函数为$var(z) = \sum_{z}(z-\overline{z})^2$最大即可</p>
+<p>当在2-dim空间中，我们需要讨论的不仅仅是$\left|w_2\right|_2=$了，而是要考虑$w_1$和$w_2$之间的关系，如果我们保持原先的variance最大，那么$w_1$和$w_2$就是一样的，所以我们要让他们正交,即$w_1 \cdot w_2 = 0$，其实：</p>
+<p>$\begin{pmatrix} w_1 \\ w_2 \\ w_3 \\ …\end{pmatrix}$是orthogonal matrix(正交矩阵)</p>
+<p>接下来我们对$var(z) = \sum_{z}(z-\bar{z})^2$ 利用lagrange进行求解：</p>
+<p>$var(z) = \sum_{z}(z-\bar{z})^2 = \sum(w \cdot(x-\bar{x}))^2$</p>
+<p>将$w$看作$a$，将$(x-\bar{x})$看作$b$:</p>
+<p>$(a \cdot b)^2 = (a^Tb)^2 = a^Tba^Tb = a^Tb(a^Tb)^T = a^Tbb^Ta$</p>
+<p>因此$var(z) = (w)^T\sum(x-\bar{x})(x-\bar{x})^T (w) = (w)^T cov(x) (w)$</p>
+<p>$S = cov(x)$，接下来我们要做的就是find $w$ 使得$(w)^TS(w)$最大</p>
+<p>我们可以通过Lagrange multiplier进行求解：</p>
+<p>$g(w) = (w)^TS (w) - \alpha((w)^Tw)- 1)$</p>
+<p>$\Rightarrow Sw-\alpha w = 0$</p>
+<p>由此我们看出要想满足最大效果，$w$为$S$的eigen vecotr,$w$为最大的eigen value</p>
+<p>由此我们基本解决了$w$在1-dim中的求解，在2-dim中我们怎么解决呢，多了一个变量！多一个函数即可解决</p>
+<p>$\Rightarrow (w_1)^Tw_2 = 0$</p>
+<p>我们可以因此得出$\beta = 0$，我们也可以得到$\beta$对应$S$中的第二大eigen value $\lambda_2$</p>
+<p>至此我们基本解决了PCA的原理，我们接下来就是对应实践的过程，在实践中，我们发现我们有很多的疑问，我将我的疑问进行了以下整理</p>
+<h5 id="在PCA中我们需要解释的几件事情："><a href="#在PCA中我们需要解释的几件事情：" class="headerlink" title="在PCA中我们需要解释的几件事情："></a>在PCA中我们需要解释的几件事情：</h5><ul>
+<li>线性变换的意义</li>
+<li>协方差矩阵的意义</li>
+<li>为什么处理数据时要同时减去均值</li>
+<li>Lagrange multiplier</li>
+<li>矩阵对角化</li>
+</ul>
+<ol>
+<li><p>为什么要线性变换？</p>
+<p>将N维向量转换为K维向量时（$N &gt; K$），目标是选择K个单位正交基，使得原始数据变换到这组基上，这些基的协方差为0目的是字段的方差尽可能大</p>
+</li>
+<li><p>为什么要通过协方差矩阵？</p>
+<p>协方差是用来刻画两个随机变量之间的相关性，反映变量之间的二阶统计特性</p>
+<p>$cov(a,b) = \frac{1}{m}\sum_{i=1}^m(a_i-\mu_a)(b_i-\mu_b)$</p>
+<p>随机变量$X_i X_j$</p>
+<p>$cov(X_i,X_j) = E[(X_i-E(X_i))(X_j-E(X_j))]$</p>
+<p>对于数据集矩阵:</p>
+<p>$X = \begin{pmatrix}a_1&amp;a_2&amp;…&amp;a_m\\b_1&amp;b_2&amp;…&amp;b_m \end{pmatrix}$，特征维度为2</p>
+<p>假设均值为0，我们可以通过$\frac{1}{m}XX^T$得到协方差矩阵：</p>
+<p>$\begin{pmatrix}\frac{1}{m}\sum_{i=1}^m a_i^2 &amp;\frac{1}{m}\sum_{i=1}^m a_ib_i \\ \frac{1}{m}\sum_{i=1}^ma_ib_i &amp; \frac{1}{m}\sum_{i=1}^m b_i^2 \end{pmatrix}$</p>
+<p>由矩阵可以知道，对角线上的元素就是均值为0情况下的方差，而非对角线上的元素就是两个字段的协方差，所以协方差矩阵直接满足了我们所需要的两个条件，下面我们只需要对<strong>方差最大、协方差最小</strong>来进行就可以了</p>
+<p>如何让Max和min同时满足呢，我们要做的就是协方差矩阵对角化（除对角线外的元素化为0，对角线元素从大到小排列）</p>
+<p>我们假设output为Y，input为X，分别对应协方差矩阵$Y_c$$X_c$</p>
+<p>$Y_c = \frac{1}{m}YY^T = \frac{1}{m}(PX)(PX)^T = \frac{1}{m}PXX^TP^T = P(\frac{1}{m}XX^T)P^T = PX_cP^T$</p>
+<p>由此我们看到Y和X的协方差之间的关系，我们要求的Y协方差矩阵对角化，那么我们就要让$PX_cP^T$为对角矩阵，在这里P实际上就是$X_c$对应的特征向量组成的矩阵</p>
+</li>
+<li><p>为什么处理数据要减去均值？</p>
+<p>在上面的步骤中其实已经解决了这个问题，目的就是减去均值后相当于这群数据的均值为0，那么协方差矩阵对角线元素直接对应了他们的方差，并且这也是归一化的步骤，防止不同元素数值差距太大</p>
+</li>
+<li><p>拉格朗日算子</p>
+<p><img src="post/lagrangeM.png" alt=""></p>
+</li>
+<li><p>矩阵对角化作用</p>
+<p>之所以要矩阵最小化，目的是为了利用他的数学性质，首先实对称矩阵不同特征值对应特征向量正交，其次特征值重数对应重数个特征向量，可以对这些特征向量单位正交化</p>
+</li>
+</ol>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">meanX</span><span class="hljs-params">(dataX)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.mean(dataX,axis=<span class="hljs-number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pca</span><span class="hljs-params">(XMat,k)</span>:</span></span><br><span class="line">    average = meanX(XMat)</span><br><span class="line">    m,n = np.shape(XMat)</span><br><span class="line">    data_adjust = []</span><br><span class="line">    avgs = np.tile(average,(m,<span class="hljs-number">1</span>))</span><br><span class="line">    data_adjust = XMat - avgs</span><br><span class="line">    covX = np.cov(data_adjust.T)</span><br><span class="line">    featValue,featVec = np.linalg.eig(covX)</span><br><span class="line">    index = np.argsort(-featValue)</span><br><span class="line">    finalData = []</span><br><span class="line">    <span class="hljs-keyword">if</span> k &gt; n:</span><br><span class="line">        <span class="hljs-keyword">print</span> <span class="hljs-string">"k must lower than feature number"</span></span><br><span class="line">        <span class="hljs-keyword">return</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        selectVec = np.matrix(featVec[index[:k]])</span><br><span class="line">        finalData = data_adjust*selectVec.T</span><br><span class="line">        reconData = (finalData*selectVec) + average</span><br><span class="line">    <span class="hljs-keyword">return</span> finalData,reconData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loaddata</span><span class="hljs-params">(datafile)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> np.array(pd.read_csv(datafile,sep=<span class="hljs-string">"\t"</span>,header=<span class="hljs-number">-1</span>)).astype(np.float)</span><br></pre></td></tr></table></figure>
+
         </div>
         
         
@@ -163,30 +236,9 @@
 </div>
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/06/PCA/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PCA整理</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/22/hello-world/">
-                <span class="level-item">Hello World</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 </div>
                 
 
@@ -634,7 +686,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                     
-                    <img src="/images/logo.jpg" alt="First day here" height="28">
+                    <img src="/images/logo.jpg" alt="SherhomYe" height="28">
                     
                 </a>
                 <p class="is-size-7">
