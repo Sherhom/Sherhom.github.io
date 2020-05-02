@@ -811,12 +811,10 @@ blockquote p {
 }
 .footer_maps {
   width: 50px;
+  height: 50px;
   margin-left: auto;
   margin-right: auto;
   clear: both;
-  margin-top: 2em;
-  padding-left: 2.5em;
-  font-size: 1.28rem;
 }
 @media (min-width: 66.67em) {
   .footer_wrap {
