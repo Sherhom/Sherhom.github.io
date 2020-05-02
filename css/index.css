@@ -809,10 +809,6 @@ blockquote p {
   padding-left: 2.5em;
   font-size: 1.28rem;
 }
-.footer_maps {
-  width: 100px;
-  height: 100px;
-}
 @media (min-width: 66.67em) {
   .footer_wrap {
     max-width: 1200px;
