@@ -20,6 +20,26 @@
             background-color: #778899;
             padding: 5px;
         }
+
+        .weixin div {
+            left: -999em;
+            position: absolute;
+            overflow: visible;
+            padding-top: 27px;
+            width: 150px;
+            height: 150px;
+            z-index: 999;
+        }
+
+        .weixin img {
+            margin-left: -75px;
+            width: 98%;
+            height: auto;
+        }
+
+        .weixin:hover div {
+            left: auto;
+        }
     </style>
 </head>
 
@@ -68,7 +88,7 @@
                                     aria-hidden="true"></i></a></li>
                         <li><a class="social-icon" href="/" target="_blank"><i class="fab fa-weibo"
                                     aria-hidden="true"></i></a></li>
-                        <li><a class="-icon" href="/" target="_blank"><i class="fab fa-weixin"
+                        <li><a class="weixin" href="/" target="_blank"><div><img src="/img/selfpic.png"></div><i class="fab fa-weixin"
                                     aria-hidden="true"></i></a></li>
                         <li><a class="social-icon" href="/" target="_blank"><i class="fab fa-qq"
                                     aria-hidden="true"></i></a></li>
@@ -366,7 +386,7 @@
     <footer id="page_footer">
         <div class="footer_wrap">
             <div class="copyright">&copy;2020 by Fei Ye</div>
-            <div class="theme-info"><a href="" target="_blank" rel="nofollow noopener"></a>  <a href="" target="_blank"
+            <div class="theme-info"><a href="" target="_blank" rel="nofollow noopener"></a> <a href="" target="_blank"
                     rel="nofollow noopener"></a></div>
         </div>
     </footer>
